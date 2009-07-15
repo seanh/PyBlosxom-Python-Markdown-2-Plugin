@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 """
-markdown-plugin.py -- A python-markdown 2 plugin for pyblosxom.
+markdown-plugin.py -- A Python-Markdown v2.x plugin for PyBlosxom.
 
-This plugin requires python-markdown 2, which you can download from:
+This plugin requires Python-Markdown v2.x, which you can download from:
 
     http://www.freewisdom.org/projects/python-markdown/
 
-Extract python-markdown 2 into your pyblosxom plugins dir alongside this plugin.
-Your plugins dir should look like this:
+Extract python-markdown into your pyblosxom plugins dir alongside this 
+plugin. Your plugins dir should look like this:
 
     plugins/ <-- your pyblosxom plugins dir
         markdown-plugin.py <-- this file
@@ -15,7 +15,8 @@ Your plugins dir should look like this:
         markdown/ <-- directory containing python-markdown's files
         ... <-- (any other pyblosxom plugins)
 
-Now any posts with filenames ending in `.mkdn` will be passed through python-markdown.
+Now any posts with filenames ending in `.mkdn` will be passed through 
+python-markdown.
    
 Copyright (C) Benjamin Mako Hill, 2005
 Updated for python-markdown 2 by seanh 2009

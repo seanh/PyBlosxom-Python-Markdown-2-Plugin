@@ -1,10 +1,10 @@
-markdown-plugin.py -- A python-markdown 2 plugin for pyblosxom.
+markdown-plugin.py -- A Python-Markdown v2.x plugin for PyBlosxom.
 
-This plugin requires python-markdown 2, which you can download from:
+This plugin requires Python-Markdown v2.x, which you can download from:
 
     http://www.freewisdom.org/projects/python-markdown/
 
-Extract python-markdown 2 into your pyblosxom plugins dir alongside this 
+Extract python-markdown into your pyblosxom plugins dir alongside this 
 plugin. Your plugins dir should look like this:
 
     plugins/ <-- your pyblosxom plugins dir
