@@ -38,44 +38,20 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
 USA.
 
 """
-FILENAME_EXTENSIONS = ('txt','text','mkdn','markdown','md','mdown','markdn','mkd')
 _version__ = '0.3'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
 __author__ = 'seanh <snhmnd@gmail.com>'
 
-import codecs
+FILENAME_EXTENSIONS = ('.txt','.text','.mkdn','.markdown','.md','.mdown','.markdn','.mkd')
+
 import markdown
-from Pyblosxom import tools
+import os
 
-md = markdown.Markdown(
-	#safe_mode=True,
-	output_format='html4',
-	extensions=[ 'extra',]
-)
+md = markdown.Markdown(output_format='html4',extensions=['extra',])
 
-def cb_entryparser(args):
-	for FILENAME_EXTENSION in FILENAME_EXTENSIONS:
-		args[FILENAME_EXTENSION] = readfile
+def cb_story(args):
+	entry = args['entry']
+	if os.path.splitext(entry['filename'])[1] in FILENAME_EXTENSIONS:
+		entry['body'] = md.convert(''.join(entry['body']))
+		md.reset()
 	return args
-
-def parse(story):
-	html = md.convert(story)
-	md.reset()
-	return html
-
-def readfile(filename, request):
-	entryData = {}
-	lines = codecs.open(filename, mode="r", encoding="utf8").readlines()
-	title = lines.pop(0).strip()
-	while lines and lines[0].startswith("#"):
-		meta = lines.pop(0)
-		meta = meta[1:].strip()
-		meta = meta.split(" ", 1)
-		entryData[meta[0].strip()] = meta[1].strip()
-	entryData['title'] = title
-	entryData['body'] = parse(''.join(lines))
-	# Call the postformat callbacks
-	tools.run_callback('postformat',
-			{'request': request,
-			 'entry_data': entryData})
-	return entryData
