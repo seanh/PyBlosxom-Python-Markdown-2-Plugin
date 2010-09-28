@@ -4,16 +4,16 @@ markdown-plugin.py -- A Python-Markdown v2.x plugin for PyBlosxom.
 
 This plugin requires Python-Markdown v2.x, which you can download from:
 
-    http://www.freewisdom.org/projects/python-markdown/
+	http://www.freewisdom.org/projects/python-markdown/
 
 Extract python-markdown into your pyblosxom plugins dir alongside this
 plugin. Your plugins dir should look like this:
 
-    plugins/ <-- your pyblosxom plugins dir
-        markdown-plugin.py <-- this file
-        markdown.py <-- the python-markdown command line script
-        markdown/ <-- directory containing python-markdown's files
-        ... <-- (any other pyblosxom plugins)
+	plugins/ <-- your pyblosxom plugins dir
+		markdown-plugin.py <-- this file
+		markdown.py <-- the python-markdown command line script
+		markdown/ <-- directory containing python-markdown's files
+		... <-- (any other pyblosxom plugins)
 
 Now any posts with filenames ending in `.mkdn` will be passed through
 python-markdown.
@@ -48,49 +48,49 @@ import markdown
 from Pyblosxom import tools
 
 md = markdown.Markdown(
-    #safe_mode=True,
-    output_format='html4',
-    extensions=[ 'codehilite', # Requires python-pygments
-                 'extra', # Abbreviations, definition lists, fenced code blocks,
-                          # footnotes, headerid and tables.
-                 #'html_tidy', # Enable this if you have libtidy and uTidylib
-                 #'imagelinks', # Broken?
-                 #'meta',
-                 #'rss',
-                 'toc',
-                 #'wikilinks'
-               ]
+	#safe_mode=True,
+	output_format='html4',
+	extensions=[ 'codehilite', # Requires python-pygments
+				 'extra', # Abbreviations, definition lists, fenced code blocks,
+						  # footnotes, headerid and tables.
+				 #'html_tidy', # Enable this if you have libtidy and uTidylib
+				 #'imagelinks', # Broken?
+				 #'meta',
+				 #'rss',
+				 'toc',
+				 #'wikilinks'
+			   ]
 )
 
 def cb_entryparser(args):
-    for FILENAME_EXTENSION in FILENAME_EXTENSIONS:
-        args[FILENAME_EXTENSION] = readfile
-    return args
+	for FILENAME_EXTENSION in FILENAME_EXTENSIONS:
+		args[FILENAME_EXTENSION] = readfile
+	return args
 
 def cb_preformat(args):
-    if args['parser'] == PREFORMATTER_ID:
-        return parse(''.join(args['story']))
+	if args['parser'] == PREFORMATTER_ID:
+		return parse(''.join(args['story']))
 
 def parse(story):
-    # Convert the ASCII text to HTML with python-markdown.
-    html = md.convert(story)
-    # Reset python-markdown ready for next time.
-    md.reset()
-    return html
+	# Convert the ASCII text to HTML with python-markdown.
+	html = md.convert(story)
+	# Reset python-markdown ready for next time.
+	md.reset()
+	return html
 
 def readfile(filename, request):
-    entryData = {}
-    lines = codecs.open(filename, mode="r", encoding="utf8").readlines()
-    title = lines.pop(0).strip()
-    while lines and lines[0].startswith("#"):
-        meta = lines.pop(0)
-        meta = meta[1:].strip()
-        meta = meta.split(" ", 1)
-        entryData[meta[0].strip()] = meta[1].strip()
-    entryData['title'] = title
-    entryData['body'] = parse(''.join(lines))
-    # Call the postformat callbacks
-    tools.run_callback('postformat',
-            {'request': request,
-             'entry_data': entryData})
-    return entryData
+	entryData = {}
+	lines = codecs.open(filename, mode="r", encoding="utf8").readlines()
+	title = lines.pop(0).strip()
+	while lines and lines[0].startswith("#"):
+		meta = lines.pop(0)
+		meta = meta[1:].strip()
+		meta = meta.split(" ", 1)
+		entryData[meta[0].strip()] = meta[1].strip()
+	entryData['title'] = title
+	entryData['body'] = parse(''.join(lines))
+	# Call the postformat callbacks
+	tools.run_callback('postformat',
+			{'request': request,
+			 'entry_data': entryData})
+	return entryData
