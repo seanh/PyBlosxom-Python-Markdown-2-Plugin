@@ -50,14 +50,13 @@ from Pyblosxom import tools
 md = markdown.Markdown(
 	#safe_mode=True,
 	output_format='html4',
-	extensions=[ 'codehilite', # Requires python-pygments
-				 'extra', # Abbreviations, definition lists, fenced code blocks,
-						  # footnotes, headerid and tables.
-				 #'html_tidy', # Enable this if you have libtidy and uTidylib
+	extensions=[ #'codehilite', # Requires python-pygments
+				'extra',
+				 #'html_tidy', # Requires libtidy and uTidylib
 				 #'imagelinks', # Broken?
 				 #'meta',
 				 #'rss',
-				 'toc',
+				 #'toc',
 				 #'wikilinks'
 			   ]
 )
