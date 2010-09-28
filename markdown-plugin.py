@@ -70,19 +70,9 @@ def cb_preformat(args):
     if args['parser'] == PREFORMATTER_ID:
         return parse(''.join(args['story']))
 
-def to_ascii(char):
-    """Return char if char is an ASCII character, '?' otherwise."""
-    if ord(char) < 128:
-        return char
-    else:
-        return '?'
-
 def parse(story):
-    # Replace any non-ascii characters in the story with '?', so that
-    # python-markdown doesn't crash.
-    ascii = "".join([to_ascii(x) for x in story])
     # Convert the ASCII text to HTML with python-markdown.
-    html = md.convert(ascii)
+    html = md.convert(story)
     # Reset python-markdown ready for next time.
     md.reset()
     return html
