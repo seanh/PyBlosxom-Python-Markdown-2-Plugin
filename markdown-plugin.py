@@ -38,7 +38,7 @@ USA.
 
 """
 PREFORMATTER_ID = 'markdown'
-FILE_EXT = 'mkdn'
+FILENAME_EXTENSIONS = ('txt','text','mkdn','markdown','md','mdown','markdn','mkd')
 _version__ = '0.2'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
 __author__ = 'seanh'
@@ -63,7 +63,8 @@ md = markdown.Markdown(
 )
 
 def cb_entryparser(args):
-    args[FILE_EXT] = readfile
+    for FILENAME_EXTENSION in FILENAME_EXTENSIONS:
+        args[FILENAME_EXTENSION] = readfile
     return args
 
 def cb_preformat(args):
