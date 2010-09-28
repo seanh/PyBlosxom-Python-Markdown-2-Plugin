@@ -44,7 +44,7 @@ _version__ = '0.3'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
 __author__ = 'seanh <snhmnd@gmail.com>'
 
-import re,codecs
+import codecs
 import markdown
 from Pyblosxom import tools
 
