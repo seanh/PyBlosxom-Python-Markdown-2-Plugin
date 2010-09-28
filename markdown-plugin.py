@@ -20,7 +20,7 @@ Now any posts with filenames ending in one of the FILENAME_EXTENSIONS defined
 below will be passed through python-markdown.
 
 Copyright (C) Benjamin Mako Hill, 2005
-Updated for python-markdown 2 by seanh 2009
+Updated for Python Markdown 2 by seanh 2009
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
