@@ -72,9 +72,7 @@ def cb_preformat(args):
 		return parse(''.join(args['story']))
 
 def parse(story):
-	# Convert the ASCII text to HTML with python-markdown.
 	html = md.convert(story)
-	# Reset python-markdown ready for next time.
 	md.reset()
 	return html
 
