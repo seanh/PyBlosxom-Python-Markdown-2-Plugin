@@ -38,7 +38,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
 USA.
 
 """
-PREFORMATTER_ID = 'markdown'
 FILENAME_EXTENSIONS = ('txt','text','mkdn','markdown','md','mdown','markdn','mkd')
 _version__ = '0.3'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
@@ -58,10 +57,6 @@ def cb_entryparser(args):
 	for FILENAME_EXTENSION in FILENAME_EXTENSIONS:
 		args[FILENAME_EXTENSION] = readfile
 	return args
-
-def cb_preformat(args):
-	if args['parser'] == PREFORMATTER_ID:
-		return parse(''.join(args['story']))
 
 def parse(story):
 	html = md.convert(story)
