@@ -51,15 +51,7 @@ from Pyblosxom import tools
 md = markdown.Markdown(
 	#safe_mode=True,
 	output_format='html4',
-	extensions=[ #'codehilite', # Requires python-pygments
-				'extra',
-				 #'html_tidy', # Requires libtidy and uTidylib
-				 #'imagelinks', # Broken?
-				 #'meta',
-				 #'rss',
-				 #'toc',
-				 #'wikilinks'
-			   ]
+	extensions=[ 'extra',]
 )
 
 def cb_entryparser(args):
