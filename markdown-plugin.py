@@ -6,7 +6,7 @@ This plugin requires Python-Markdown v2.x, which you can download from:
 
     http://www.freewisdom.org/projects/python-markdown/
 
-Extract python-markdown into your pyblosxom plugins dir alongside this 
+Extract python-markdown into your pyblosxom plugins dir alongside this
 plugin. Your plugins dir should look like this:
 
     plugins/ <-- your pyblosxom plugins dir
@@ -15,9 +15,9 @@ plugin. Your plugins dir should look like this:
         markdown/ <-- directory containing python-markdown's files
         ... <-- (any other pyblosxom plugins)
 
-Now any posts with filenames ending in `.mkdn` will be passed through 
+Now any posts with filenames ending in `.mkdn` will be passed through
 python-markdown.
-   
+
 Copyright (C) Benjamin Mako Hill, 2005
 Updated for python-markdown 2 by seanh 2009
 
@@ -58,7 +58,7 @@ md = markdown.Markdown(
                  #'meta',
                  #'rss',
                  'toc',
-                 #'wikilinks'               
+                 #'wikilinks'
                ]
 )
 
@@ -77,7 +77,7 @@ def to_ascii(char):
     else:
         return '?'
 
-def parse(story):    
+def parse(story):
     # Replace any non-ascii characters in the story with '?', so that
     # python-markdown doesn't crash.
     ascii = "".join([to_ascii(x) for x in story])
