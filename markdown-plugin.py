@@ -41,7 +41,7 @@ PREFORMATTER_ID = 'markdown'
 FILENAME_EXTENSIONS = ('txt','text','mkdn','markdown','md','mdown','markdn','mkd')
 _version__ = '0.2'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
-__author__ = 'seanh'
+__author__ = 'seanh <snhmnd@gmail.com>'
 
 import re,codecs
 import markdown
