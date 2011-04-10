@@ -19,8 +19,13 @@ this:
 Now any posts with filenames ending in one of the FILENAME_EXTENSIONS defined
 below will be passed through python-markdown.
 
-Copyright (C) Benjamin Mako Hill, 2005
-Rewritten by seanh 2009, 2010
+Copyright (C) 2005, 2011 Benjamin Mako Hill
+Copyright (c) 2009, 2010, seanh
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
 
 """
 _version__ = '0.3'
