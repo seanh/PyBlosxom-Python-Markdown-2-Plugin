@@ -32,7 +32,7 @@ _version__ = '0.3'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
 __author__ = 'seanh <snhmnd@gmail.com>'
 
-FILENAME_EXTENSIONS = ('.txt','.text','.mkdn','.markdown','.md','.mdown','.markdn','.mkd')
+FILENAME_EXTENSIONS = ('.txt','.text','.mkdn','.markdown','.md','.mdown','.markdn','.mkd','.mdwn')
 
 import markdown
 import os
